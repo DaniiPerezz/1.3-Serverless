@@ -11,16 +11,17 @@ https://templatemo.com/tm-588-ebook-landing
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #E76F51;
-  --secondary-color:              #E9C46A;
-  --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #F4A261;
-  --custom-btn-bg-hover-color:    #E76F51;
-  --dark-color:                   #000000;
-  --p-color:                      #717275;
-  --link-hover-color:             #E76F51;
+  --primary-color:                #176B70;
+  --secondary-color:              #E2A441;
+  --section-bg-color:             #F0F6F5;
+  --custom-btn-bg-color:          #D7654B;
+  --custom-btn-bg-hover-color:    #B84F39;
+  --dark-color:                   #173236;
+  --p-color:                      #52696C;
+  --link-hover-color:             #B84F39;
 
-  --body-font-family:             'Unbounded', sans-serif;
+  --body-font-family:             'DM Sans', sans-serif;
+  --heading-font-family:          'Lora', serif;
 
   --h1-font-size:                 42px;
   --h2-font-size:                 36px;
@@ -29,13 +30,13 @@ https://templatemo.com/tm-588-ebook-landing
   --h5-font-size:                 22px;
   --h6-font-size:                 20px;
   --p-font-size:                  16px;
-  --menu-font-size:               12px;
+  --menu-font-size:               14px;
   --btn-font-size:                14px;
   --copyright-font-size:          14px;
 
   --border-radius-large:          100px;
-  --border-radius-medium:         20px;
-  --border-radius-small:          10px;
+  --border-radius-medium:         8px;
+  --border-radius-small:          6px;
 
   --font-weight-light:            300;
   --font-weight-normal:           400;
@@ -67,6 +68,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--heading-font-family);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -417,7 +419,8 @@ strong {
 }
 
 .navbar {
-  background: transparent;
+  position: relative;
+  background-color: rgba(23, 50, 54, 0.94);
   z-index: 99;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -471,7 +474,7 @@ strong {
   color: var(--white-color);
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
   position: relative;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -479,7 +482,7 @@ strong {
 
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .navbar-toggler {
@@ -553,12 +556,13 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
-  background-image: url('../images/businessman-sitting-by-table-cafe.jpg');
+  background-image: url('../assets/images/library.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  padding-top: 50px;
+  min-height: 650px;
+  padding: 64px 0 48px;
 }
 
 .hero-section::after {
@@ -575,21 +579,36 @@ strong {
 .hero-section .row {
   position: relative;
   z-index: 22;
-  top: 100px;
+  top: 0;
+  align-items: center;
 }
 
 .hero-image {
   position: relative;
   z-index: 2;
-  bottom: 100px;
+  bottom: 0;
   display: block;
   margin: auto;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+  box-shadow: 0 18px 44px rgba(12, 35, 38, 0.28);
+}
+
+.hero-description {
+  max-width: 42rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 @media screen and (min-width: 991px) {
   .hero-section {
-    height: calc(90vh - 88px);
-    padding-top: 350px;
+    min-height: calc(82vh - 64px);
+    height: auto;
+    padding: 64px 0 48px;
   }
 }
 
@@ -604,17 +623,27 @@ strong {
   padding-bottom: 50px;
 }
 
-.featured-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 450px 450px;
-  border-color: transparent transparent var(--white-color) transparent;
-  pointer-events: none;
+.feature-list {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-list > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 24px;
+}
+
+.feature-list strong {
+  color: var(--white-color);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.feature-list span {
+  color: var(--white-color);
+  line-height: 1.4;
 }
 
 
@@ -622,7 +651,7 @@ strong {
   CUSTOM BLOCK              
 -----------------------------------------*/
 .custom-block {
-  background-image: url('../images/businessman-sitting-by-table-cafe.jpg');
+  background-image: url('../assets/images/library.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -766,7 +795,8 @@ strong {
   AUTHOR SECTION            
 -----------------------------------------*/
 .author-section {
-  background-image: url('../images/circle-scatter-haikei.png');
+  background-image: none;
+  background-color: var(--section-bg-color);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left bottom;
@@ -775,12 +805,13 @@ strong {
 }
 
 .author-image {
-  border: 10px solid var(--secondary-color);
-  border-radius: 100%;
+  border: 0;
+  border-radius: var(--border-radius-small);
   display: block;
   margin: auto;
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
@@ -789,7 +820,8 @@ strong {
   DIVIDER SECTION               
 -----------------------------------------*/
 .divider-section {
-  background-image: url('../images/wave-haikei.png');
+  background-image: none;
+  background-color: var(--section-bg-color);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -844,6 +876,68 @@ strong {
   position: relative;
   z-index: 2;
   padding: 50px;
+}
+
+.architecture-card {
+  min-height: 260px;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(23, 107, 112, 0.2);
+  border-top: 4px solid var(--primary-color);
+  border-radius: var(--border-radius-small);
+  background: var(--white-color);
+}
+
+.architecture-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--custom-btn-bg-color);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+}
+
+.architecture-card h3 {
+  margin-bottom: 12px;
+}
+
+.architecture-card p {
+  line-height: 1.7;
+}
+
+.architecture-service {
+  display: block;
+  margin-top: 20px;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.architecture-endpoint code {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white-color);
+}
+
+.form-status {
+  min-height: 24px;
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form-status[data-state="error"] {
+  color: #9D2F24;
+}
+
+.form-status[data-state="success"] {
+  color: #176B48;
+}
+
+.custom-form button[type="submit"]:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 
